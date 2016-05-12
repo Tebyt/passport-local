@@ -176,12 +176,12 @@ function scrollMessage(){
 }
 
 function sendMsgToServer(content,send_Activity_Id,userID){
-  var sendJson = {"content": content, "activityId": send_Activity_Id, "userId":userID};
+  var sendJson = {"content": content, "activityId": activityId, "userId":userID};
   console.log(sendJson);
   //$.post('/api/activities/'+send_Activity_Id+'/messages',sendJson,function(data,status){console.log("send msg to server")});
   //$.post('/api/activities/'+send_Activity_Id+'/messages',function(sendJson){});
   $.ajax({
-       url: '/api/activities/'+send_Activity_Id+'/messages',
+       url: '/messages',
        type: 'POST',
        contentType:'json',
        data: sendJson,

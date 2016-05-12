@@ -68,7 +68,11 @@ module.exports = function (app) {
     })
     app.get('/messages/:activityId', function(req, res) {
         Messages.find({activityId: req.params.activityId}).populate('activityId').exec(function (err, messages) {
-            res.render("chat", {activityId: req.body.activityId, messages: messages});
+            res.json({
+                activityId: req.params.activityId,
+                userId: req.user._id,
+                messages: messages
+            });
         });
     })
 };

@@ -3,6 +3,7 @@ html
         title chat Demo
         link(type='text/css', rel='stylesheet', href='css/stylesheet.css')
         link(href='http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700', rel='stylesheet', type='text/css')
+        script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js')
     body
         header.titlebar
             // add the titile
@@ -17,23 +18,19 @@ html
                 textarea#message(placeholder='Write something..')
                 button#submit(type='button') SEND
         script.
+            var messages;
+            var activityId;
+            var userId;
             //console.log(#{activityId})
             $.ajax({
-                url: "/messages"+'#{activityId}'
-                , type: "POST"
-                , data: formData
+                url: "/messages/"+'#{activityId}'
+                , type: "GET"
                 , success: function (data, textStatus, jqXHR) {
+                    console.log(data);
                     //data - response from server
-                    $("#success").modal('show');
-                    console.log('success');
-                    setTimeout(
-                            function () {
-                                //do something special
-                                window.location.replace("/");
-                            }, 1200);
-                }
-                , error: function (jqXHR, textStatus, errorThrown) {
+                    messages = data.messages;
+                    activityId = data.activityId;
+                    userId = data.userId;
+                    script(src = 'javascript/chat.js')
                 }
             });
-        script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-        script(src='javascript/chat.js')
