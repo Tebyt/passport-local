@@ -63,7 +63,10 @@
             margin-right: 10px;
             padding-left: 0;
         }
-
+        .navbar-brand:hover {
+/*            background-color: #FFF;*/
+            color: #FFF;
+        }
     </style>
 
 
@@ -210,7 +213,13 @@
 //               return '<img src="/client/img/logo.png" class="img-rounded" alt="Cinque Terre" width="50" height="50">' + d.description;
             var img_url = d.userId.avatar
                 var activityId = d._id;
-                return ' <a href = /chat/'+activityId+'><div class="row" ><div class="col-xs-3"><img src='+img_url+' class="img-circle" height="55" width="55" alt="Avatar"><p>' +d.type+ '</p></div> <div class="col-xs-7"><span> '+ d.description+ '</span></div></div></a> '
+                var actiPrice = d.price;
+                if(actiPrice == 1)
+                return ' <a href = /chat/'+activityId+'><div class="row" ><div class="col-xs-3"><img src='+img_url+' class="img-circle" height="55" width="55" alt="Avatar"><h5>' +d.userId.nickname+ '</h5></div> <div class="col-xs-7"><span> '+ d.description+ '</span></div><div class="col-xs-1"><br><span class="fa fa-usd"></span></div></div><div class="row"><p style="float:right"> '+d.userId.school+'</p></div></a> '
+                if(actiPrice == 2)
+                    return ' <a href = /chat/'+activityId+'><div class="row" ><div class="col-xs-3"><img src='+img_url+' class="img-circle" height="55" width="55" alt="Avatar"><h5>' +d.userId.nickname+ '</h5></div> <div class="col-xs-7"><span> '+ d.description+ '</span></div><div class="col-xs-2"><br><span class="fa fa-usd"></span><span class="fa fa-usd"></span></div></div><div class="row"><p style="float:right"> '+d.userId.school+'</p></div></a> '
+                else 
+                     return ' <a href = /chat/'+activityId+'><div class="row" ><div class="col-xs-3"><img src='+img_url+' class="img-circle" height="55" width="55" alt="Avatar"><h5>' +d.userId.nickname+ '</h5></div> <div class="col-xs-7"><span> '+ d.description+ '</span></div><div class="col-xs-2"><br><span class="fa fa-usd"></span><span class="fa fa-usd"></span><span class="fa fa-usd"></span></div></div><div class="row"><p style="float:right"> '+d.userId.school+'</p></div></a> '
 
             })
 
