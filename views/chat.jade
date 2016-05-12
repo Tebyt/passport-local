@@ -1,0 +1,39 @@
+html
+    head
+        title chat Demo
+        link(type='text/css', rel='stylesheet', href='css/stylesheet.css')
+        link(href='http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700', rel='stylesheet', type='text/css')
+    body
+        header.titlebar
+            // add the titile
+            img#goback(src='img/goback.png')
+            #titleContainer
+            .detailedActivity
+        .chatscreen
+            ul.chats
+                // add chat messages
+        footer
+            form#chatform
+                textarea#message(placeholder='Write something..')
+                button#submit(type='button') SEND
+        script.
+            //console.log(#{activityId})
+            $.ajax({
+                url: "/messages"+'#{activityId}'
+                , type: "POST"
+                , data: formData
+                , success: function (data, textStatus, jqXHR) {
+                    //data - response from server
+                    $("#success").modal('show');
+                    console.log('success');
+                    setTimeout(
+                            function () {
+                                //do something special
+                                window.location.replace("/");
+                            }, 1200);
+                }
+                , error: function (jqXHR, textStatus, errorThrown) {
+                }
+            });
+        script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+        script(src='javascript/chat.js')
