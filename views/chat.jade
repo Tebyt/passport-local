@@ -19,7 +19,7 @@ html
                 button#submit(type='button') SEND
         script.
             var messages;
-            var activityId;
+            var activity;
             var userId;
             //console.log(#{activityId})
             $.ajax({
@@ -29,7 +29,7 @@ html
                     console.log(data);
                     //data - response from server
                     messages = data.messages;
-                    activityId = data.activityId;
+                    activity = data.activity;
                     userId = data.userId;
                 }
             });
