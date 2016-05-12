@@ -1,24 +1,12 @@
 html
-    head
-        title chat Demo
-        link(type='text/css', rel='stylesheet', href='css/stylesheet.css')
-        link(href='http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700', rel='stylesheet', type='text/css')
-        script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-    body
-        header.titlebar
-            // add the titile
-            img#goback(src='img/goback.png')
-            #titleContainer
-            .detailedActivity
-        .chatscreen
-            ul.chats
-                // add chat messages
-        footer
-            form#chatform
-                textarea#message(placeholder='Write something..')
-                button#submit(type='button') SEND
-        script.
-            var messages;
+  head
+    title chat Demo
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700', rel='stylesheet', type='text/css')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css')
+  body
+    script.
+     var messages;
             var activity;
             var userId;
             //console.log(#{activityId})
@@ -31,6 +19,327 @@ html
                     messages = data.messages;
                     activity = data.activity;
                     userId = data.userId;
+                    init();
                 }
             });
-        script(src = 'javascript/chat.js')
+    style.
+      * {
+      padding: 0;
+      margin: 0;
+      }
+      body {
+      background-color: #f0f1f3;
+      color:#667073;
+      font: 16px/1.3 'Arial',sans-serif;
+      }
+      #img {
+      float: left;
+      margin: 90px 0 0 140px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      }
+      .image {
+      clear:both;
+      float:left;
+      text-align:center;
+      overflow: hidden;
+      }
+      .image img {
+      float: left;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      }
+      .image b {
+      overflow: hidden;
+      display: block;
+      clear: both;
+      padding-top: 7px;
+      font-size: 33;
+      }
+      .image i{
+      font-size: 12px;
+      line-height: 1.2;
+      display: block;
+      opacity: 0.8;
+      padding-top: 4px;
+      }
+      .body {
+      text-align:center;
+      width: 40%;
+      display: block;
+      margin:0px auto 650px;
+      background-color: #ffffff;
+      color: #637277;
+      }
+      .chats {
+      list-style-type: none;
+      margin-top:10px;
+      }
+      .me {
+      clear:both;
+      float:left;
+      margin-bottom:10px;
+      }
+      .you {
+      clear:both;
+      float:right;
+      margin-bottom:50px;
+      }
+      .you .image{
+      float:right;
+      }
+      /*.chats .me p {
+      text-align:left;
+      float: left;
+      display: inline-block;
+      margin-left: 5px;
+      margin-bottom:5px;
+      padding: 25px 34px;
+      min-width: 160px;
+      min-height: 10px;
+      max-width: 510px;
+      background-color: #FFF;
+      border-radius: 3px;
+      box-shadow: 0px 3px 3px #E3E4E6;
+      color: #637277;
+      line-height: 1.4;
+      word-wrap: break-word;
+      }*/
+      .chats .you p, .chats .me p {
+      text-align:left;
+      float: left;
+      display: inline-block;
+      /*  top: 20px;*/
+      margin-left: 5px;
+      margin-right:10px;
+      margin-bottom:5px;
+      padding: 5px 5px;
+      min-width: 50px;
+      /*min-height: 10px;*/
+      max-width: 510px;
+      background-color: #FFF;
+      border-radius: 3px;
+      box-shadow: 0px 3px 3px #E3E4E6;
+      color: #637277;
+      line-height: 1.4;
+      word-wrap: break-word;
+      font-size: 44;
+      }
+      .chats:after {
+      content: '';
+      float: left;
+      width: 100%;
+      height: 8%;
+      }
+      /* ------------ Footer styles ------------ */
+      footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding-top: 5px;
+      background-color: white;
+      height: 6%;
+      }
+      #chatform {
+      width: 100%;
+      margin-top: 1%;
+      background-color: white;
+      position: relative;
+      }
+      #message {
+      left: 3%;
+      width: 800px;
+      height: 80px;
+      display: block;
+      float: left;
+      margin: 0 auto;
+      background-color: #f9f9f9;
+      border: 1px solid #cccccc;
+      border-radius: 2px;
+      padding-left: 20px;
+      padding-top: 20px;
+      resize: none;
+      font: inherit;
+      color: inherit;
+      position: relative;
+      }
+      #submit {
+      width: 110px;
+      height: 60px;
+      float: right;
+      text-align: center;
+      background-color: #73b4d4;
+      display: block;
+      margin-right: 3%;
+      margin-top: 1%;
+      border: none;
+      box-shadow: 3px 3px 3px #efedee;
+      border-radius: 2px;
+      color: white;
+      font-weight: bold;
+      font-size: 17px;
+      outline: none;
+      cursor: pointer;
+      }
+      .chatscreen{
+      display: block;
+      position: relative;
+      width: 90%;
+      height: 86%;
+      top: 7%;
+      left:5%;
+      z-index: -1;
+      /* overflow: hidden; */
+      }
+      .titlebar{
+      position: fixed;
+      width: 100%;
+      height: 6%;
+      display:block;
+      top:-1;
+      }
+      #goback{
+      position: relative;
+      background-color: lightblue;
+      width:5%;
+      height: 100%;
+      float: left;
+      }
+      #titleContainer{
+      float: left;
+      width: 94%;
+      height: 100%;
+      font-size: 55;
+      text-align: center;
+      line-height: 2;
+      background-color: lightblue;
+      }
+      #titleContainer b{
+      font-size: 55;
+      left:50%;
+      }
+      .detailedActivity{
+      background: white;
+      top:100%;
+      width: 100%;
+      height:0;
+      transition:all 0.5s;
+      visibility:hidden;
+      overflow: hidden;
+      font-size:40;
+      }
+      .detailedActivity-show{
+      height:200px;
+      visibility: visible;
+
+      }
+      #block{
+      background-color: lightblue;
+      height:100%;
+      width:1%;
+      float: left;
+      }
+    header.titlebar
+      // add the titile
+      #block
+      a(href='../index.html')
+        i#goback.fa.fa-angle-left.fa-5x(aria-hidden='true')
+      #titleContainer
+      .detailedActivity
+    .chatscreen
+      ul.chats
+        // add chat messages
+    footer
+      form#chatform
+        textarea#message(placeholder='Write something..')
+        button#submit(type='button') SEND
+    script(type='text/javascript').
+      function init(){
+      var chatForm = $("#chatform"),
+      chats = $(".chats"),
+      textarea = $('#message'),
+      title=$('.titlebar'),
+      titlebutton=$("#titleContainer"),
+      detailed_activity = $('.detailedActivity'),
+      footer=$('.footer');
+      //chat content variables
+      var initial = activity[0];  //read from local
+      // var idArray = [];
+      // var nickArray = [];
+      // var avatarArray=[];
+      var participantLength = 0;
+      //activity_detail
+      var title = initial.description;
+      detailed_activity.append(title);
+      //management variable
+      var userNickName = initial.userId.nickname;/////////
+      var userAvatar = initial.userId.avatar;
+      var userId = initial.userId._id;
+      var activity_Id = initial._id;
+      //front end
+      var chatScreenHeight=0;
+      function loadTitle(msg){
+      if(msg.length>20){
+      msg=msg.substring(0,20)+"...";
+      }
+      titlebutton.append(msg);
+      }
+      function createChatMessage(msg,speakerName,imgg){
+      var who = '';
+      if(speakerName!==userNickName) {
+      who = 'me';
+      }
+      else {
+      who = 'you';
+      }
+      var li = $(
+      '<li class=' + who + '>'+
+      '<div class="image">' +
+      '<img src=' + imgg + ' />' +
+      '<b></b>' +
+      '</div>' +
+      '<p></p>' +
+      '</li>');
+      // use the 'text' method to escape malicious user input
+      li.find('p').text(msg);
+      li.find('b').text(speakerName);
+      chats.append(li);
+      chatScreenHeight+=li.height();
+      }
+      function scrollMessage(){
+      $("html,body").animate({scrollTop:chatScreenHeight},1000); //animation
+      }
+      function sendMsgToServer(content,send_Activity_Id,userID){
+      var sendJson = {"content": content, "activityId": send_Activity_Id, "userId":userID};
+      $.post('/messages/',sendJson,function(data,status){console.log("send msg to server")})
+      }
+      function receiveMsg(){
+      var revMsg;
+      createChatMessage(revMsg,userNickName,userAvatar);
+      scrollMessage();
+      }
+      //the send button on the bottom
+      $("#submit").click(function(){
+      console.log(activity_Id);
+      sendMsgToServer(textarea.val(),activity_Id,userId);  //send to server
+      createChatMessage(textarea.val(),userNickName,userAvatar); //update to front end
+      textarea.val("");
+      });
+      titlebutton.click(function(){
+      detailed_activity.toggleClass('detailedActivity-show');
+      });
+      function loadHistory(msg){
+      for(var i=0;i<msg.length;i++){
+      var content = msg[i].content;
+      var ava = msg[i].userId.avatar;
+      var nick = msg[i].userId.nickname;
+      createChatMessage(content,nick,ava);
+      }
+      scrollMessage();  //scroll after loading completed
+      }
+      loadTitle(title);
+      loadHistory(messages);
+      }
