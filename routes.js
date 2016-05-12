@@ -48,6 +48,9 @@ module.exports = function (app) {
           res.json(activities);
       })
   })
+    app.get('/history', function(req, res) {
+        res.render('history', {userId: req.user._id});
+    })
 
     app.post('/activities', function(req, res){
         Activities.create(req.body, function(err, activity) {

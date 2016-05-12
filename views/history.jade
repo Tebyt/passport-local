@@ -1,0 +1,118 @@
+html
+    head
+        title Bootstrap Theme Simply Me
+        meta(charset='utf-8')
+        // <meta name="viewport" content="width=device-width, initial-scale=1">
+        meta(name='viewport', content='user-scalable=no, initial-scale=1, maximum-scale=1,width=device-width')
+        // <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+        script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css')
+        style.
+            .navbar-default {
+                background-color: #c7b938;
+                color: #FFF;
+            }
+            #bottom {
+                background-color: #FFF;
+                border-top: 1px solid #c7b938;
+            }
+            .items-collection1 div.btn-default {
+                border: 0px;
+                color: darkgray;
+            }
+            .acti-List li {
+                list-style: none;
+                margin-bottom: 10px;
+                margin-left: 0px;
+                height: 150px;
+                margin-right: 20px
+                /*            box-shadow: inset 2px 2px 1px rgba(0,0,0,.05),2px 2px 1px rgba(0,0,0,.05);*/
+            }
+    body
+        .row
+            nav.navbar.navbar-default
+                .container
+                    .navbar-header.col-xs-10
+                        //
+                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          </button>
+                        a.navbar-brand(href='/')
+                            strong(style='color: #FFF;') Weconnect
+                    //
+                      <div class="nav navbar-nav navbar-right ">
+                      <li><a class="navbar-brand"href="/register.html" style="color: #FFF;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                      </div>
+        #acti.container
+            ul#acti-List.acti-List
+            br
+            br
+            br
+            br
+        .row
+            nav#bottom.navbar.navbar-inverse.navbar-fixed-bottom
+                .container-fluid
+                    .row
+                        .items-collection1
+                            .col-xs-4.btn.btn-default.col-xs-offset-1
+                                a.navbar-brand(href='/')
+                                    center
+                                        i.fa.fa-home.fa-2x(aria-hidden='true')
+                            .col-xs-3.btn.btn-default
+                                center
+                                    a.navbar-brand(href='/post', style='color:#c7b938')
+                                        i.fa.fa-plus.fa-2x(aria-hidden='true')
+                            .col-xs-3.btn.btn-default.col-xs-offset-1
+                                a.navbar-brand(href='#')
+                                    center
+                                        i.fa.fa-commenting-o.fa-2x(aria-hidden='true')
+    script(src='http://d3js.org/d3.v3.min.js', charset='utf-8')
+    script.
+        var userId = '#{userId}';
+        var data_global;
+        function render(data) {
+            var filteredData = data_global.filter(function (d) {
+                return d.userId._id == userId
+                //            console.log(data.description);
+            });
+            console.log(filteredData);
+            renderList(filteredData);
+        }
+        function renderList(data) {
+            console.log(data);
+            var selection = d3.select("#acti-List").selectAll("li")
+                    .data(data, function (d) {
+                        console.log(d);
+                        return d.description
+                    });
+            selection.enter()
+                    .append("li")
+                    .attr("class", "well")
+                    .html(function (d) {
+                        //                <img src="/client/img/logo.png" class="img-rounded" alt="Cinque Terre" width="50" height="50">
+                        //               return '<img src="/client/img/logo.png" class="img-rounded" alt="Cinque Terre" width="50" height="50">' + d.description;
+                        var img_url = d.userId.avatar
+                        var activityId = d._id;
+                        var actiPrice = d.price;
+                        if (actiPrice == 1)
+                            return ' <a href = /chat/' + activityId + '><div class="row" ><div class="col-xs-3"><img src=' + img_url + ' class="img-circle" height="55" width="55" alt="Avatar"><h5>' + d.userId.nickname + '</h5></div> <div class="col-xs-7"><span> ' + d.description + '</span></div><div class="col-xs-1"><br><span class="fa fa-usd"></span></div></div><div class="row"><p style="float:right"> ' + d.userId.school + '</p></div></a> '
+                        if (actiPrice == 2)
+                            return ' <a href = /chat/' + activityId + '><div class="row" ><div class="col-xs-3"><img src=' + img_url + ' class="img-circle" height="55" width="55" alt="Avatar"><h5>' + d.userId.nickname + '</h5></div> <div class="col-xs-7"><span> ' + d.description + '</span></div><div class="col-xs-2"><br><span class="fa fa-usd"></span><span class="fa fa-usd"></span></div></div><div class="row"><p style="float:right"> ' + d.userId.school + '</p></div></a> '
+                        else
+                            return ' <a href = /chat/' + activityId + '><div class="row" ><div class="col-xs-3"><img src=' + img_url + ' class="img-circle" height="55" width="55" alt="Avatar"><h5>' + d.userId.nickname + '</h5></div> <div class="col-xs-7"><span> ' + d.description + '</span></div><div class="col-xs-2"><br><span class="fa fa-usd"></span><span class="fa fa-usd"></span><span class="fa fa-usd"></span></div></div><div class="row"><p style="float:right"> ' + d.userId.school + '</p></div></a> '
+                    })
+            //            .text(function(d) {
+            //            return d.description;
+            //        });
+            selection.exit().remove();
+        }
+        d3.json('/activities', function (error, data) {
+            //        console.log(data);
+            data_global = data.reverse();
+            render(data_global);
+        })
+
