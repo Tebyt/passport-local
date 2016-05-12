@@ -75,7 +75,7 @@ module.exports = function (app) {
                 console.log(activity);
                 res.json({
                     activity: activity,
-                    userId: req.user._id,
+                    user: req.user,
                     messages: messages
                 });
             })

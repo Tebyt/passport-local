@@ -18,7 +18,7 @@ html
                     //data - response from server
                     messages = data.messages;
                     activity = data.activity;
-                    userId = data.userId;
+                    user = data.user;
                     init();
                 }
             });
@@ -245,7 +245,7 @@ html
     header.titlebar
       // add the titile
       #block
-      a(href='../index.html')
+      a(href='/')
         i#goback.fa.fa-angle-left.fa-5x(aria-hidden='true')
       #titleContainer
       .detailedActivity
