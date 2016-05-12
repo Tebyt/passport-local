@@ -1,0 +1,243 @@
+<html>
+
+<head>
+    <title>Bootstrap Theme Simply Me</title>
+    <meta charset="utf-8">
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1,width=device-width" />
+    <!--    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <style>
+        .navbar-default {
+            background-color: #c7b938;
+            color: #FFF;
+        }
+        
+        .items-collection label .itemcontent {
+            width: 100%;
+        }
+        
+        .items-collection .btn-group {
+            width: 100%;
+            padding-left: 35px
+        }
+        
+        .items-collection2 label.btn-default {
+            width: 30%;
+            border: 0px solid #305891;
+            margin: 5px;
+            padding-left: 20px;
+            /*            color: #305891;*/
+            color: #7f8778
+        }
+        
+        #bottom {
+            background-color: #FFF;
+            border-top: 1px solid #c7b938;
+        }
+        
+        .items-collection1 div.btn-default {
+            border: 0px;
+            color: darkgray;
+        }
+        
+        .items-collection2 label.btn-default.active {
+            color: #c7b938;
+            background-color: #FFF;
+        }
+
+        .acti-List li {
+            list-style: none; 
+            margin-bottom: 10px;
+            margin-left: 0px;
+            height: 150px;
+/*            box-shadow: inset 2px 2px 1px rgba(0,0,0,.05),2px 2px 1px rgba(0,0,0,.05);*/
+            
+        }
+        #acti {
+            margin-left: 0;
+            padding-right: 20px;
+            margin-right: 10px;
+            padding-left: 0;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+    <div class="row">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header  col-xs-10 ">
+
+                    <!--
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+-->
+                    <a class="navbar-brand" href="/">
+                        <strong style="color: #FFF;">Weconnect</strong>
+                    </a>
+                </div>
+                <div class="nav navbar-nav navbar-right ">
+                    
+                    <li><a class="navbar-brand"href="/register.html" style="color: #FFF;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="form-group" id="choice">
+            <div class="items-collection" id="message2">
+                <div class="items-collection2">
+                    <!--                <div class="items">-->
+                    <!--                    <div class="info-block block-info clearfix">-->
+                    <div data-toggle="buttons" class="btn-group ">
+                        <label class="btn btn-default col-xs-2 col-sm-2 col-md-3 col-lg-3 " id="Drink">
+                            <div class="itemcontent">
+                                <input type="radio" name="options" id="option1" autocomplete="off" value="Drink">
+                                <span class="fa fa-glass fa-2x"></span>
+                                <br>Drink
+                            </div>
+                        </label>
+
+                        <label class="btn btn-default col-xs-2 col-sm-2 col-md-3 col-lg-3" id="Fitness">
+                            <div class="itemcontent">
+                                <input type="radio" name="options" id="option2" autocomplete="off" value="Fitness">
+                                <span class="fa fa-futbol-o fa-2x"></span>
+                                <br>Fitness
+                            </div>
+                        </label>
+
+                        <label class="btn btn-default col-xs-2 col-sm-2 col-md-3 col-lg-3" id="Meal">
+                            <div class="itemcontent">
+                                <input type="radio" name="options" id="option3" autocomplete="off" value="Meal">
+                                <center><i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
+                                    <br>Meal</center>
+                            </div>
+                        </label>
+                        <label class="btn btn-default col-xs-2 col-sm-2 col-md-3 col-lg-3" id="Movie">
+                            <div class="itemcontent">
+                                <input type="radio" name="options" id="option4" autocomplete="off" value="Movie">
+                                <center><i class="fa fa-video-camera fa-2x" aria-hidden="true"></i>
+                                    <br>Movie</center>
+                            </div>
+                        </label>
+                        <label class="btn btn-default col-xs-2 col-sm-2 col-md-3 col-lg-3" id="Tour">
+                            <div class="itemcontent">
+                                <input type="radio" name="options" id="option5" autocomplete="off" value="Tour">
+                                <center><i class="fa fa-car fa-2x" aria-hidden="true"></i>
+                                    <br>Tour</center>
+                            </div>
+                        </label>
+
+                        <label class="btn btn-default col-xs-2 col-sm-2 col-md-3 col-lg-3" id="Mall">
+                            <div class="itemcontent">
+                                <input type="radio" name="options" id="option6" autocomplete="off">
+                                <center><i class="fa fa-credit-card fa-2x" aria-hidden="true"></i>
+                                    <br>Mall</center>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="acti">
+       
+        <ul class="acti-List" id="acti-List"> </ul>
+
+
+    </div>
+
+    <div class="row">
+        <nav class="navbar navbar-inverse navbar-fixed-bottom" id="bottom">
+            <div class="container-fluid">
+                <div class="row " class="navbar-header">
+                    <div class="items-collection1">
+                        <div class="col-xs-4 btn btn-default col-xs-offset-1">
+                            <a class="navbar-brand" href="/mainpage.html"><center><i class="fa fa-home fa-2x " aria-hidden="true"></i></center></a>
+                        </div>
+                                                <div class="col-xs-3 btn btn-default">
+                            <center><a class="navbar-brand" href="/post" style="color:#c7b938"><i class="fa fa-plus fa-2x " aria-hidden="true"></i></a></center>
+                        </div>
+                        <div class="col-xs-3 btn btn-default col-xs-offset-1">
+                            <a class="navbar-brand" href="#"><center><i class="fa fa-commenting-o fa-2x " aria-hidden="true"></i></center></a>
+                        </div>
+
+                       
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+    var data_global;
+     $("#message2 label.btn").on("click", function () {
+        var type = $(this).attr('id');
+         console.log(type);
+         render(type);
+        
+    });
+    
+    function renderList(data) {
+        console.log(data);
+        var selection = d3.select("#acti-List").selectAll("li")
+            .data(data, function (d) {
+                console.log(d);
+                return d.description
+            });
+        selection.enter()
+            .append("li")
+            .attr("class", "well")
+            .html(function(d) {
+//                <img src="/client/img/logo.png" class="img-rounded" alt="Cinque Terre" width="50" height="50">
+//               return '<img src="/client/img/logo.png" class="img-rounded" alt="Cinque Terre" width="50" height="50">' + d.description;
+            var img_url = d.userId.avatar
+                return ' <div class="row" ><div class="col-xs-3"><img src='+img_url+' class="img-circle" height="55" width="55" alt="Avatar"><p>' +d.type+ '</p></div> <div class="col-xs-7"><span> '+ d.description+ '</span></div></div> '    
+    
+            })
+        
+         
+//            .text(function(d) {
+//            return d.description;
+//        });
+
+        selection.exit().remove();
+    }
+
+    
+    function render(type) {
+        var filteredData = data_global.filter(function(d) {
+            if(d.type == type)
+            return d;
+//            console.log(data.description);
+        });
+
+        renderList(filteredData);
+    }
+
+    d3.json('/activities', function (error, data) {
+        console.log(data);
+        data_global = data;
+        renderList(data_global);
+    })
+</script>
+
+
+</html>

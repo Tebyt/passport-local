@@ -1,0 +1,289 @@
+doctype html
+html(lang='en')
+    head
+        title Bootstrap Example
+        meta(charset='utf-8')
+        // <meta name="viewport" content="width=device-width, initial-scale=1">
+        meta(name='viewport', content='user-scalable=no, initial-scale=1, maximum-scale=1,width=device-width')
+        // <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+        script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css')
+        style.
+            /*
+            .btn-default {
+            background: white;
+            color: #fff;
+            }
+            .btn-default:click {
+            background: blue;
+            color: #000;
+            }
+            */
+            body {
+                overflow: hidden
+            }
+            h4 {
+                color: #FAC60C;
+            }
+            #acti-send {
+                /*            float: right;*/
+                margin: 10px;
+                margin-top: 10px;
+                background-color: #007ba7;
+                color: #FFF;
+                width: 18%;
+            }
+            #acti-cancel {
+                padding-top: 20px;
+                color: darkgray;
+            }
+            .items-collection label.btn-default.active {
+                background-color: #007ba7;
+                color: #FFF;
+            }
+            .items-collection1 label.btn-default {
+                width: 31%;
+                border: 1px solid #305891;
+                margin: 0;
+                padding-right: 0px;
+                border-radius: 17px;
+                color: #305891;
+            }
+            .items-collection label .itemcontent {
+                width: 100%;
+            }
+            .items-collection .btn-group {
+                width: 100%;
+                padding-left: 45px
+            }
+            .items-collection2 label.btn-default {
+                width: 30%;
+                border: 1px solid #305891;
+                margin: 3px;
+                padding-left: 20px;
+                color: #305891;
+            }
+    body
+        .container
+            .row
+                a#acti-cancel.col-xs-3(href='/') Cancel
+                center
+                    h4.col-xs-6 Activity Publish
+                button#acti-send.btn.btn-default.col-xs-2(type='submit')
+                    center Submit
+            // <form role="form">
+            .form-group
+                textarea#detail.form-control(name='detail', placeholder='anything new...', rows='9', required='')
+            .row
+                .form-group
+                    #message1.items-collection
+                        .items-collection1
+                            // <div class="items">
+                            // <div class="info-block block-info clearfix">
+                            .btn-group(data-toggle='buttons')
+                                label#1.btn.btn-default.col-xs-2.col-sm-4.col-md-3.col-lg-3
+                                    .itemcontent
+                                        input#option1(type='radio', name='options', autocomplete='off')
+                                        span.fa.fa-usd
+                                label#2.btn.btn-default.col-xs-2.col-sm-4.col-md-3.col-lg-3
+                                    .itemcontent
+                                        input#option2(type='radio', name='options', autocomplete='off')
+                                        span.fa.fa-usd
+                                        span.fa.fa-usd
+                                label#3.btn.btn-default.col-xs-2.col-sm-4.col-md-3.col-lg-3
+                                    .itemcontent
+                                        input#option3(type='radio', name='options', autocomplete='off')
+                                        span.fa.fa-usd
+                                        span.fa.fa-usd
+                                        span.fa.fa-usd
+        .row
+            .form-group
+                #message2.items-collection
+                    .items-collection2
+                        // <div class="items">
+                        // <div class="info-block block-info clearfix">
+                        .btn-group(data-toggle='buttons')
+                            label#Drink.btn.btn-default.col-xs-2.col-sm-2.col-md-3.col-lg-3
+                                .itemcontent
+                                    input#option1(type='radio', name='options', autocomplete='off', value='Drink')
+                                    span.glyphicon.glyphicon-glass
+                                    br
+                                    | Drink
+                            label#Fitness.btn.btn-default.col-xs-2.col-sm-2.col-md-3.col-lg-3
+                                .itemcontent
+                                    input#option2(type='radio', name='options', autocomplete='off', value='Fitness')
+                                    span.fa.fa-futbol-o
+                                    br
+                                    | Fitness
+                            label#Meal.btn.btn-default.col-xs-2.col-sm-2.col-md-3.col-lg-3
+                                .itemcontent
+                                    input#option3(type='radio', name='options', autocomplete='off', value='Meal')
+                                    center
+                                        i.fa.fa-cutlery(aria-hidden='true')
+                                        br
+                                        | Meal
+                            label#Movie.btn.btn-default.col-xs-2.col-sm-2.col-md-3.col-lg-3
+                                .itemcontent
+                                    input#option4(type='radio', name='options', autocomplete='off', value='Movie')
+                                    center
+                                        i.fa.fa-video-camera(aria-hidden='true')
+                                        br
+                                        | Movie
+                            label#Tour.btn.btn-default.col-xs-2.col-sm-2.col-md-3.col-lg-3
+                                .itemcontent
+                                    input#option5(type='radio', name='options', autocomplete='off', value='Tour')
+                                    center
+                                        i.fa.fa-car(aria-hidden='true')
+                                        br
+                                        | Tour
+                            label#Mall.btn.btn-default.col-xs-2.col-sm-2.col-md-3.col-lg-3
+                                .itemcontent
+                                    input#option6(type='radio', name='options', autocomplete='off')
+                                    center
+                                        i.fa.fa-credit-card(aria-hidden='true')
+                                        br
+                                        | Mall
+        .row
+            // <div id="selecttest">result:</div>
+        #myModal.modal.fade
+            .modal-dialog
+                .modal-content
+                    // dialog body
+                    .modal-body
+                        button.close(type='button', data-dismiss='modal') ×
+                        |                     Successful!
+                    // dialog buttons
+                    .modal-footer
+                        .row
+                            a#test2.btn.btn-default cancel
+                            a#ok.btn.btn-primary OK
+        #warning.modal.fade
+            .alert.alert-danger.fade.in
+                a.close(href='#', data-dismiss='modal', aria-label='close') ×
+                strong Warning!
+                |  The field is not completed.
+        #success.modal.fade
+            .alert.alert-info.fade.in
+                a.close(href='#', data-dismiss='modal', aria-label='close') ×
+                strong Success!
+    script.
+        //$("input[name='options']").change(function(){
+        //    alert("test");
+        //});
+        //$('#acti-send').on('click', function () {
+        //
+        //     alert("test");
+        //
+        //})
+        //$('#acti-cancel').on('click', function()) {
+        ////        $.load('home.html');
+        //}
+        var message;
+        var formData;
+        $('#acti-send').on("click", function () {
+            //        console.log("button pressed");
+            var part1 = $('#message1 label.active').attr('id');
+            var part2 = $('#message2 label.active').attr('id');
+            var part3 = $('textarea#detail').val();
+            sendData();
+            function sendData() {
+                formData = {
+                    "description": part3
+                    , "price": Number(part1)
+                    , "type": part2
+                    , "userId": '#{userId}'
+                }
+                if (part1 == undefined || part2 == undefined || part3 == "")
+                    $("#warning").modal('show');
+                else
+                    $.ajax({
+                        url: "/activities"
+                        , type: "POST"
+                        , data: formData
+                        , success: function (data, textStatus, jqXHR) {
+                            //data - response from server
+                            $("#success").modal('show');
+                            console.log('success');
+                            setTimeout(
+                                    function () {
+                                        //do something special
+                                        window.location.replace("/");
+                                    }, 1200);
+                        }
+                        , error: function (jqXHR, textStatus, errorThrown) {
+                        }
+                    });
+            }
+        });
+        $("#test2").on("click", function () {
+            //        console.log("button1 pressed");
+            $("#myModal").modal('hide');
+        });
+        //    $("#ok").on("click", function () {
+        //        console.log(formData);
+        //
+        //        //        message = $('#message1 label.active').attr('id') + $('#message2 label.active').attr('id') + $('textarea#detail').val();
+        //        //        console.log(message);
+        //        //        console.log($('textarea#detail').val());
+        //
+        //        $.ajax({
+        //            url: "/api/activities"
+        //            , type: "POST"
+        //            , data: formData
+        //            , success: function (data, textStatus, jqXHR) {
+        //                //data - response from server
+        //                 $("#success").modal('show');
+        //                console.log('success');
+        //            }
+        //            , error: function (jqXHR, textStatus, errorThrown) {
+        //
+        //            }
+        //        });
+        //
+        //
+        //    });
+        $("#myModal").on("hide", function () {
+            $("#myModal a.btn").off("click");
+        });
+        $("#myModal").on("hidden", function () {
+            $("#myModal").remove();
+        });
+        $("#myModal").modal({
+            "backdrop": "static"
+            , "keyboard": true
+            , "show": false
+            , });
+        $("#warning").modal({
+            "backdrop": "static"
+            , "keyboard": true
+            , "show": false
+            , });
+        $("#warning").on("hidden", function () {
+            $("#warning").remove();
+        });
+        $("#success").modal({
+            "backdrop": "static"
+            , "keyboard": true
+            , "show": false
+            , });
+        $("success").on("hidden", function () {
+            $("#warning").remove();
+        });
+        $("#message1 label.btn").on("click", function () {
+            $("#selecttest").text("result:" + $(this).attr('id'));
+            //        message += $(this).attr('id');
+            //        console.log(message);
+        });
+        $("#message2 label.btn").on("click", function () {
+            $("#selecttest").text("result:" + $(this).attr('id'));
+            //      $('#message1 label.btn').click(function () {
+            //        console.log($(this).text());
+            //        console.log($(this).attr('id'));
+            //        $( "#selecttest" ).text( "result:" + $( ".items-collection1 input:checked" ).val());
+            //        console.log("button pressed");
+            //        message += $(this).attr('id');
+            //        console.log(message);
+        });
+
