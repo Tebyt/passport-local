@@ -245,7 +245,7 @@
 
     d3.json('/activities', function (error, data) {
         console.log(data);
-        data_global = data;
+        data_global = data.reverse();
         renderList(data_global);
     })
 </script>
