@@ -3,7 +3,6 @@ var Account = require('./models/account');
 var mongoose = require('mongoose');
 
 var Activities = require('./models/activities')
-var Users = require('./models/users')
 var Messages = require('./models/messages')
 
 module.exports = function (app) {
@@ -68,7 +67,7 @@ module.exports = function (app) {
         res.render("chat", {activityId: req.params.activityId});
     })
     app.get('/messages/:activityId', function(req, res) {
-        Messages.find({activityId: req.params.activityId}).populate('activityId').exec(function (err, messages) {
+        Messages.find({activityId: req.params.activityId}).populate('userId').exec(function (err, messages) {
             res.json({
                 activityId: req.params.activityId,
                 userId: req.user._id,
