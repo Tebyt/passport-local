@@ -206,10 +206,9 @@
             .append("li")
             .attr("class", "well")
             .html(function(d) {
-//                <img src="/client/img/logo.png" class="img-rounded" alt="Cinque Terre" width="50" height="50">
-//               return '<img src="/client/img/logo.png" class="img-rounded" alt="Cinque Terre" width="50" height="50">' + d.description;
+
             var img_url = d.userId.avatar
-                return ' <div class="row" ><div class="col-xs-3"><img src='+img_url+' class="img-circle" height="55" width="55" alt="Avatar"><p>' +d.type+ '</p></div> <div class="col-xs-7"><span> '+ d.description+ '</span></div></div> '    
+                return ' <div class="row" ><div class="col-xs-3"><img src='+img_url+' class="img-circle" height="55" width="55" alt="Avatar"><p>' +d.userId.username+ '</p> <br> <p>'+d.userId.school+ '</p></div> <div class="col-xs-7"><span> '+ d.description+ '</span></div></div> '    
     
             })
              .on("click", function click(d) {
@@ -226,7 +225,7 @@
 //                            function () {
 //                                //do something special
 //                                 window.location.replace("/mainpage.html");
-//                            }, 1200);
+//                            }, 500);
                        
                     }
                     , error: function (jqXHR, textStatus, errorThrown) {
