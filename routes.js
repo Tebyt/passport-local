@@ -65,6 +65,8 @@ module.exports = function (app) {
     })
 
     app.get('/messages', function(req, res) {
-        Messages.find({activityId: req.body.activityId});
+        Messages.find({activityId: req.body.activityId}).populate('activityId').exec(function (err, messages) {
+            res.json(activities);
+        });
     })
 };
