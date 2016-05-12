@@ -59,6 +59,7 @@ module.exports = function (app) {
         res.render('post', {userId: req.user._id});
     })
     app.post('/messages', function(req, res) {
+        console.log(req.body);
         Messages.create(req.body, function(err, message) {
             res.json(message);
         })
