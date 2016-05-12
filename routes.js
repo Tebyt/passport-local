@@ -63,10 +63,12 @@ module.exports = function (app) {
             res.json(message);
         })
     })
-
-    app.get('/messages', function(req, res) {
-        Messages.find({activityId: req.body.activityId}).populate('activityId').exec(function (err, messages) {
-            res.json(activities);
+    app.get('/chat/:activityId', function(req, res) {
+        res.render("chat", {activityId: req.params.activityId});
+    })
+    app.get('/messages/:activityId', function(req, res) {
+        Messages.find({activityId: req.params.activityId}).populate('activityId').exec(function (err, messages) {
+            res.render("chat", {activityId: req.body.activityId, messages: messages});
         });
     })
 };
